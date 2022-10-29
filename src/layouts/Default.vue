@@ -9,7 +9,11 @@
         <g-link class="nav__link" to="/about/">About</g-link>
       </nav>
     </header>
-    <slot/>
+    <transition name="fade" appear>
+      <main> <!-- a wrapper for slot is needed -->
+        <slot /> <!-- the content -->
+      </main>
+    </transition>
   </div>
 </template>
 
@@ -66,5 +70,13 @@ a{
 
 .active--exact{
   font-weight: bolder;
+}
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-enter {
+  opacity: 0;
 }
 </style>

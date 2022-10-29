@@ -23,5 +23,6 @@
 <style scoped>
 	.title {
 		text-align: center;
+    color: #00a672;
 	}
 </style>

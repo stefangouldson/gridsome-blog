@@ -2,7 +2,7 @@
   <div class="layout">
     <header class="header">
       <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+        <g-link to="/"><Logo /></g-link>
       </strong>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
@@ -12,6 +12,16 @@
     <slot/>
   </div>
 </template>
+
+<script>
+import Logo from '../components/Logo.vue';
+
+export default {
+  components: {
+    Logo
+  }
+}
+</script>
 
 <static-query>
 query {
@@ -30,7 +40,7 @@ body {
 }
 
 .layout {
-  max-width: 760px;
+  max-width: 1000px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -44,7 +54,17 @@ body {
   height: 80px;
 }
 
+a{
+  text-decoration: none;
+}
+
 .nav__link {
   margin-left: 20px;
+  color: #00a672;
+  font-weight: normal;
+}
+
+.active--exact{
+  font-weight: bolder;
 }
 </style>

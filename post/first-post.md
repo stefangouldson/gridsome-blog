@@ -1,6 +1,7 @@
 ---
 title: "This is my first post"
 date: 2020-07-14
+image: ../src/assets/imgs/alegria.jpg
 ---
 
 # This is header
@@ -8,7 +9,7 @@ date: 2020-07-14
 ## This is second header
 
 This is my first paragraph!
-
+<!-- ![Alternative text](../src/assets/imgs/alegria.jpg) -->
 > This is a blockquote.
 
 This is a `code` tag.

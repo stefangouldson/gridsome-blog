@@ -8,12 +8,12 @@ module.exports = {
   siteName: 'Gridsome Blog',
   plugins: [
     {
-			use: "@gridsome/source-filesystem",
-			options: {
-				typeName: "Post",
-				path: "./post/**/*.md",
-			},
+		use: "@gridsome/source-filesystem",
+		options: {
+			typeName: "Post",
+			path: "./post/**/*.md",
 		},
+	},
   ],
   templates: {
 		Post: "/post/:title",

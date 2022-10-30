@@ -54,6 +54,22 @@ export default {
         renderNode: {
           [BLOCKS.EMBEDDED_ASSET]: (node) => {
             return `<img style="max-width: 95%" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`
+          },
+          // Does not work
+          [BLOCKS.TABLE]: (node) => {
+            return `
+              <table>
+                ${node.content.forEach(row => {
+                  return `
+                    <tr>
+                      ${row.content.forEach(cell => {
+                        return `<td>${cell.content.content.value}</td>`
+                      })}
+                    </tr>
+                  `
+                })}
+              </table>
+            `
           }
         }
       })

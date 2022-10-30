@@ -14,8 +14,19 @@ module.exports = {
 			path: "./post/**/*.md",
 		},
 	},
+	{
+		use: '@gridsome/source-contentful',
+		options: {
+		  space: process.env.CONTENTFUL_SPACE, // required
+		  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN, // required
+		  host: 'cdn.contentful.com',
+		  environment: 'master',
+		  typeName: 'Contentful'
+		}
+	}
   ],
   templates: {
 		Post: "/post/:title",
+    ContentfulBlogPosts: "/blog/:slug"
 	},
 }

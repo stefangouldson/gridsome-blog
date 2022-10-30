@@ -1,16 +1,15 @@
 <template>
 	<Layout>
 		<header class="title">
-			<h1>{{ $page.post.title }}</h1>
+			<h1>{{ post.title }}</h1>
       <div class="img-container">
-        <g-image style="max-width: 100%" :src="$page.post.image" />
+        <!-- <g-image style="max-width: 100%" :src="post.image" /> -->
       </div>
-			<p>Published on: {{ $page.post.date }}</p>
+			<p>Published on: {{ post.publishedAt }}</p>
 		</header>
-		<main class="content" v-html="$page.post.content"></main>
+		<!-- <main class="content" v-html="$page.post.content"></main> -->
 	</Layout>
 </template>
-
 <page-query>
 	query Post($path: String!) {
 		post: post(path: $path) {
@@ -30,6 +29,7 @@ export default {
   metaInfo(){
     return {
       title: this.$page.post.title,
+      post: this.$page.allContentfulBlogPosts.edges[0].node,
       meta: [
         {
           name: 'author',

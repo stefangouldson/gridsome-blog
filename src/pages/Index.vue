@@ -1,19 +1,18 @@
 <template>
 	<Layout>
 		<h1>Welcome to {{ $static.metadata.siteName }}!</h1>
-    		<hr />
-		<u><h2>Posts</h2></u>
+    <hr />
 		<g-link
-			v-for="post in $page.posts.edges"
+			v-for="post in $page.allContentfulBlogPosts.edges"
 			:key="post.id"
 			class="post"
-			:to="post.node.path"
+			:to="'/blog/' + post.node.slug"
 		>
 			<div class="post">
 				<h3>
 					<b>{{ post.node.title }}</b>
 				</h3>
-				<p>Date: {{ post.node.date }}</p>
+				<p>Date: {{ post.node.publishedAt }}</p>
 			</div>
 		</g-link>
 	</Layout>
@@ -48,16 +47,16 @@
 </static-query>
 
 <page-query>
-	query {
-		posts: allPost {
-			edges {
-				node {
-					id 
-					title 
-					path 
-					date(format: "MMMM D, YYYY")
-				} 
-			} 
-		} 
-	}
+  query allBlogs {
+    allContentfulBlogPosts {
+      edges {
+        node {
+          title
+          slug
+          id
+          publishedAt(format: "MMMM D, YYYY")
+        }
+      }
+    }
+  }
 </page-query>
